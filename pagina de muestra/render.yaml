@@ -2,16 +2,12 @@ services:
   - type: web
     name: gen-movil
     runtime: node
-    buildCommand: npm install --omit=dev || true
+    buildCommand: npm install --omit=dev
     startCommand: node server.js
     envVars:
       - key: PORT
         value: 3000
       - key: SETTINGS_FILE
-        value: /data/settings.json
+        value: /var/tmp/settings.json
       - key: UPLOAD_DIR
-        value: /data/img
-    disk:
-      name: data
-      mountPath: /data
-      sizeGB: 1
+        value: /var/tmp/img
