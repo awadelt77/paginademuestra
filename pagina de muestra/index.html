@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market - Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-filter="all">
+
+  <div class="topbar">
+    <nav class="navbar">
+      <a href="index.html" class="brand"><span class="accent">⚡</span>GEN MOVIL</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="recomendaciones.html">Recomendaciones</a>
+        <button class="nav-btn" id="btnBuscar">🔍 Busca y encuentra</button>
+        <button class="nav-btn" id="btnAyuda" onclick="openHelp()">🛟 Ayuda</button>
+        <button class="theme-toggle" id="themeToggle" title="Cambiar modo">🌙</button>
+      </div>
+    </nav>
+    <div class="search-panel" id="searchPanel">
+      <input type="search" id="searchInput" placeholder="Busca y encuentra…" autocomplete="off">
+    </div>
+  </div>
+
+  <section id="inicio">
+    <div class="hero">
+      <span class="eyebrow">Demo</span>
+      <h1>Inicio</h1>
+      <p>Haz clic en un producto para ver sus características</p>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="emptyMsg" hidden>No se encontraron productos para tu búsqueda.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Nota: la página es una muestra. Los botones de WhatsApp y Telegram aún no son funcionales.</p>
+    <button class="admin-link" onclick="openAdmin()">¿Eres administrador? Inicia sesión</button>
+  </footer>
+
+  <div class="watermark">página de muestra</div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <div class="overlay" id="helpOverlay">
+    <div class="modal help-modal">
+      <button class="close" onclick="closeHelp()">&times;</button>
+      <h2>🛟 Centro de ayuda</h2>
+      <p class="help-sub">Escríbenos por cualquiera de nuestros canales de contacto</p>
+      <div class="help-buttons">
+        <a href="#" class="help-btn hb-wa" onclick="return false;">💬 WhatsApp</a>
+        <a href="#" class="help-btn hb-tg" onclick="return false;">✈️ Telegram</a>
+        <a href="#" class="help-btn hb-fb" onclick="return false;">Facebook</a>
+        <a href="#" class="help-btn hb-ig" onclick="return false;">Instagram</a>
+        <a href="#" class="help-btn hb-gm" onclick="return false;">✉️ Gmail</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="adminOverlay">
+    <div class="modal admin-modal">
+      <button class="close" onclick="closeAdmin()">&times;</button>
+      <h2>👤 Acceso administrador</h2>
+      <p class="help-sub" id="adminMsg">Ingresa la contraseña para gestionar el catálogo.</p>
+      <div id="adminLogin">
+        <div class="admin-login-row">
+          <input type="password" id="adminPass" placeholder="Contraseña">
+          <button class="btn btn-admin" onclick="adminLogin()">Entrar</button>
+        </div>
+        <p class="admin-hint">Contraseña de demo: admin123</p>
+      </div>
+      <div id="adminPanel" hidden>
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-tab="list" onclick="switchTab('list')">📋 Productos</button>
+          <button class="admin-tab" data-tab="add" onclick="switchTab('add')">➕ Añadir</button>
+        </div>
+
+        <div id="adminTabList">
+          <div class="admin-list" id="adminList"></div>
+        </div>
+
+        <div id="adminTabAdd" hidden>
+          <div class="add-form">
+            <label class="add-field">
+              <span>Nombre</span>
+              <input id="addNombre" placeholder="Nombre del producto">
+            </label>
+            <div class="add-row-2">
+              <label class="add-field">
+                <span>Marca</span>
+                <input id="addMarca" placeholder="Marca">
+              </label>
+              <label class="add-field">
+                <span>Precio (COP)</span>
+                <input id="addPrecio" type="number" min="1" placeholder="250000">
+              </label>
+            </div>
+            <label class="add-field">
+              <span>Imagen</span>
+              <input id="addImg" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+              <span class="admin-hint">Opcional: si no eliges imagen se usará una de ejemplo.</span>
+            </label>
+            <div class="add-field">
+              <span>Especificaciones (opcional)</span>
+              <div id="addSpecs"></div>
+            </div>
+            <button class="btn btn-admin" onclick="addProduct()">➕ Añadir producto</button>
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button class="btn btn-admin" onclick="adminSave()">💾 Guardar cambios</button>
+          <button class="btn btn-admin-ghost" onclick="adminLogout()">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Configuración Caddy para el VPS (Hostinger, DigitalOcean, etc.)
+# Sustituye tudominio.com por tu dominio real.
+
+tudominio.com {
+    reverse_proxy 127.0.0.1:3000
+}

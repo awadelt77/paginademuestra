@@ -1,0 +1,12 @@
+{
+  "name": "gen-movil-market",
+  "version": "1.0.0",
+  "description": "Catálogo de tienda con panel de administración",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

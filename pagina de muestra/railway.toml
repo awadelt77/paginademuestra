@@ -1,0 +1,13 @@
+[build]
+command = "npm install --omit=dev || true"
+
+[deploy]
+startCommand = "node server.js"
+
+[deploy.volumes]
+  [deploy.volumes.data]
+    mount_path = "/data"
+
+[variables]
+SETTINGS_FILE = "/data/settings.json"
+UPLOAD_DIR = "/data/img"
